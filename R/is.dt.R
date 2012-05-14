@@ -1,0 +1,22 @@
+is.dt <-
+function(x,m,a)
+{
+	pr=c();
+	pr[1]=is.degen(x);
+	pr[2]=is.bern(x);
+	pr[3]=is.binom(x,m,a);
+	pr[4]=is.pois(x,a);
+	pr[5]=is.geom(x,a);
+	pr[6]=is.nbinom(x,m,a);
+	pr[7]=is.norm(x,m,a);
+	pr[8]=is.unif(x,m,a);
+	pr[9]=is.exp(x,m,a);
+	pr[10]=is.chisq(x,m,a);
+	pr[11]=is.gamma(x,m,a);
+	pr[12]=is.t(x,m,a);
+	pr[13]=is.f(x,m,a);
+	pr[14]=is.beta(x,m,a);
+	dis=c('degen','bern','binom','pois','geom','nbinom','norm','unif','exp','chisq','gamma','t','f','beta');
+	z=data.frame(dis,pr);
+	return(z[which(pr==max(pr)),]);
+}
