@@ -4,9 +4,9 @@ function(b)
     for(i in 2:4) {a[i-1]=b[i]/b[1]}
     p=a[2]-a[1]^2/3
     q=a[3]-a[1]*a[2]/3+2*a[1]^3/27
-    if(is.complex(sqrt1(q^2/4+p^3/27)))
-       {  A=(-q/2+sqrt1(q^2/4+p^3/27))^(1/3)
-          B=(-q/2-sqrt1(q^2/4+p^3/27))^(1/3)
+    if(is.complex(sqrt(as.complex(q^2/4+p^3/27))))
+       {  A=(-q/2+sqrt(as.complex(q^2/4+p^3/27)))^(1/3)
+          B=(-q/2-sqrt(q^2/4+p^3/27))^(1/3)
         }
     else
        {  if((-q/2+sqrt(q^2/4+p^3/27))<0) {A=-(-(-q/2+sqrt(q^2/4+p^3/27)))^(1/3)}

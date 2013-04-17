@@ -11,7 +11,7 @@ is.bern(x)
   \item{x}{data}
 }
 \details{
-Given a set of observations from a certain distribution, this function is used to test whether the observations are from a distribution of Bernoulli or not. The function will work better if the number you choose to devide the interval is between 5 and 20. 
+Given a set of observations from a certain distribution, this function is used to test whether the observations are from a distribution of Bernoulli or not. The function will work better if the number you choose to devide the interval is between 10 and 20. This number cannot excess the number of given oberservation. 
 }
 \value{if data obey the distribution, return a value represent the likelihood, the larger the better; else return -1.}
 \references{
@@ -35,15 +35,6 @@ is.bern(examplecheck)
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x) 
-{
-    re = Inf
-    for (i in 1:length(x)) if (x[i] != 1 && x[i] != 0) 
-        re = -1
-    return(re)
-  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

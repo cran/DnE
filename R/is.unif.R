@@ -48,17 +48,18 @@ function(x,m,a,sita1=NULL,sita2=NULL)
                              p[m+1]=punif(Inf,sita1,sita2);
                              q=q+length(x)*p[m+1];
 		q0=qchisq(1-a,df);
+                pvalue=pchisq(q,df);
 		if(q<=q0)
 		{
-			return(q0-q);
+			return(data.frame("qchisq"=q,"pvalue"=pvalue));
 		}
 		else
 		{
-			return(-1);
+			return(data.frame("state"=-1,"pvalue"=1));
 		}
 	}
 	else
 	{
-		return(-1);
+		return(data.frame("state"=-1,"pvalue"=1));
 	}
 }

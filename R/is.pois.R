@@ -11,7 +11,7 @@ function(x,a,lambda=NULL)
 	q=0;
 	if(re==-1)
 	{
-		return(-1);
+		return(data.frame("state"=-1,"pvalue"=1));
 	}
 	else
 	{
@@ -41,18 +41,19 @@ function(x,a,lambda=NULL)
 		p[di+1]=1-ppois(max(x),lambda);
 		q=q+length(x)*p[di+1];
 		q0=qchisq(1-a,df);
+                pvalue=pchisq(q,df);
 		if(q<=q0)
 		{
-			return(q0-q);
+			return(data.frame("qchisq"=q,"pvalue"=pvalue));
 		}
 		else
 		{
-			return(-1);
+			return(data.frame("state"=-1,"pvalue"=1));
 		}
 		}
 		else 
 		{
-			return(-1);
+			return(data.frame("state"=-1,"pvalue"=1));
 		}
 	}
 }

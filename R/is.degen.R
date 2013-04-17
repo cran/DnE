@@ -3,10 +3,10 @@ function(x)
 {
 	if(var(x)==0)
 	{
-		return(Inf);
+		return(data.frame("qchisq"=Inf,"pvalue"=0));
 	}
 	else
 	{
-		return(-1);
+		return(data.frame("state"=-1,"pvalue"=1));
 	}
 }

@@ -26,12 +26,13 @@ function(x,m,a)
 		if(p[m+2]!=0)
 			q=q+(y[m+2]-(length(x)*p[m+2]))^2/(length(x)*p[m+2]);
 		q0=qchisq(1-a,df);
+                pvalue=pchisq(q,df);
 		if(q<=q0)
 		{
-			return(q0-q);
+			return(data.frame("qchisq"=q,"pvalue"=pvalue));
 		}
 		else
 		{
-			return(-1);
+			return(data.frame("state"=-1,"pvalue"=1));
 		}
 }

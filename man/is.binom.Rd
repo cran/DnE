@@ -15,7 +15,7 @@ is.binom(x, m, a, n = NULL, p0 = NULL)
   \item{p0}{the probability of successful event}
 }
 \details{
-Given a set of observations from a certain distribution, this function is used to test whether the observations are from a distribution of binomial or not.The function will work better if the number you choose to devide the interval is between 5 and 20. 
+Given a set of observations from a certain distribution, this function is used to test whether the observations are from a distribution of binomial or not.The function will work better if the number you choose to devide the interval is between 10 and 20. This number cannot excess the number of given oberservation. 
 }
 \value{if data obey the distribution, return a value represent the likelihood, the larger the better; else return -1.}
 \references{
@@ -38,68 +38,6 @@ is.binom(examplecheck,10,0.05)
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function (x, m, a, n = NULL, p0 = NULL) 
-{
-    re = 1
-    for (i in 1:length(x)) if (x[i] < 0) 
-        re = -1
-    p = rep(0, m)
-    y = rep(0, m)
-    q = 0
-    if (re == -1) {
-        return(-1)
-    }
-    else {
-        x1 = mean(x)
-        sum = 0
-        for (i in 1:length(x)) {
-            sum = sum + x[i]^2
-        }
-        x2 = sum/length(x)
-        if (is.null(n) && is.null(p0)) {
-            p0 = 1 + (x1^2 - x2)/x1
-            n = round(x1/p0)
-            df = m - 3
-        }
-        else if (is.null(n)) {
-            n = round(x1/p0)
-            df = m - 2
-        }
-        else if (is.null(p0)) {
-            p0 = 1 + (x1^2 - x2)/x1
-            df = m - 2
-        }
-        else {
-            df = m - 1
-        }
-        if (p0 > 0 && p0 < 1) {
-            for (i in 1:m) {
-                p[i] = pbinom(round(n * i/m), n, p0) - pbinom(round(n * 
-                  (i - 1)/m), n, p0)
-                if (p[i] == 0) {
-                  break
-                }
-                for (j in 1:length(x)) if (x[j] > n * (i - 1)/m && 
-                  x[j] <= n * i/m) 
-                  y[i] = y[i] + 1
-                q = q + (y[i] - (length(x) * p[i]))^2/(length(x) * 
-                  p[i])
-            }
-            q0 = qchisq(1 - a, df)
-            if (q <= q0) {
-                return(q0 - q)
-            }
-            else {
-                return(-1)
-            }
-        }
-        else {
-            return(-1)
-        }
-    }
-  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
