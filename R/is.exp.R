@@ -1,5 +1,5 @@
 is.exp <-
-function(x,m,a,lambda=NULL)
+function(x,m,a=10,lambda=NULL)
 {
 	re=1;
 	for(i in 1:length(x))

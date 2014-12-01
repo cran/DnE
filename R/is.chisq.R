@@ -1,5 +1,5 @@
 is.chisq <-
-function(x,m,a,n0=NULL)
+function(x,m,a=10,n0=NULL)
 {
 	re=1;
 	for(i in 1:length(x))

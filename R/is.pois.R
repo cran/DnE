@@ -1,9 +1,9 @@
 is.pois <-
-function(x,a,lambda=NULL)
+function(x,a=10,lambda=NULL)
 {
 	re=1;
 	for(i in 1:length(x))
-		if(x[i]<0&&round(x)!=x)
+		if(x[i]<0||round(x[i])!=x[i])
 			re=-1;
 	di=max(x)-min(x)+1;
 	p=rep(0,di+1);

@@ -1,5 +1,5 @@
 is.dt <-
-function(x,m,a)
+function(x,m=10,a)
 {
 	pr=c();
 	pr[1]=is.degen(x)[1,2];

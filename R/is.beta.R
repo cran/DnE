@@ -1,5 +1,5 @@
 is.beta <-
-function(x,m,a,sita1=NULL,sita2=NULL)
+function(x,m,a=10,sita1=NULL,sita2=NULL)
 {
 	re=1;
 	for(i in 1:length(x))
@@ -10,7 +10,7 @@ function(x,m,a,sita1=NULL,sita2=NULL)
 	q=0;
 	if(re==-1)
 	{
-		return(data.frame("state"=-1,"pvalue"=1));
+		return(data.frame("state"=-1,"pvalue"=0));
 	}
 	else
 	{

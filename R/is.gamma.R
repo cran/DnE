@@ -1,5 +1,5 @@
 is.gamma <-
-function(x,m,a,a0=NULL,b0=NULL)
+function(x,m,a=10,a0=NULL,b0=NULL)
 {
 	re=1;
 	for(i in 1:length(x))

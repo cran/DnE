@@ -1,5 +1,5 @@
 is.norm <-
-function(x,m,a)
+function(x,m,a=10)
 {
 	x=scale(x);
 	p=rep(0,m+2);

@@ -1,5 +1,5 @@
 is.f <-
-function(x,m,a,k1=NULL,k2=NULL)
+function(x,m,a=10,k1=NULL,k2=NULL)
 {
 	re=1;
 	for(i in 1:length(x))

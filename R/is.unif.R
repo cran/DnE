@@ -1,5 +1,5 @@
 is.unif <-
-function(x,m,a,sita1=NULL,sita2=NULL)
+function(x,m,a=10,sita1=NULL,sita2=NULL)
 {
 	p=rep(0,m);
 	y=rep(0,m);

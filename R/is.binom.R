@@ -1,9 +1,9 @@
 is.binom <-
-function(x,m,a,n=NULL,p0=NULL)
+function(x,m,a=10,n=NULL,p0=NULL)
 {
 	re=1;
 	for(i in 1:length(x))
-		if(x[i]<0&&round(x)!=x)
+		if(x[i]<0||round(x[i])!=x[i])
 			re=-1;
 	p=rep(0,m);
 	y=rep(0,m);

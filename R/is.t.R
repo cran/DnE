@@ -1,5 +1,5 @@
 is.t <-
-function(x,m,a,n0=NULL)
+function(x,m,a=10,n0=NULL)
 {
 	p=rep(0,m+2);
 	y=rep(0,m+2);
